@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 root 'public/homes#top'
 get 'about' => 'public/homes#about'
 get 'items' => 'public/items#index'
+get '/customers/mypage' => 'public/customers#show'
+get '/customers/information/edit' => 'public/customers#edit'
+get '/customers/check' => 'public/customers#check'
 
 devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
