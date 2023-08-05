@@ -6,10 +6,25 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-   admin_path
+      #byebug
+    case resource
+    when Admin
+      admin_path
+    when Customer
+      root_path
+    end
   end
 
-  def after_sign_out_path_for(resource_or_scope)
-    admin_path
+  def after_sign_out_path_for(resource)
+     # byebug
+    case resource
+    when :admin
+     new_admin_session_path
+
+    when :customer
+     root_path
   end
+ end
+
+
 end
