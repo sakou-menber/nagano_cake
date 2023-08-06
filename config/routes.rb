@@ -4,11 +4,15 @@ Rails.application.routes.draw do
 root 'public/homes#top'
 get 'about' => 'public/homes#about'
 get 'items' => 'public/items#index'
+get '/items/:id' => 'public/items#show'
 get '/customers/mypage' => 'public/customers#show'
 get '/customers/information/edit' => 'public/customers#edit'
 get '/customers/check' => 'public/customers#check'
 get '/cart_items' => 'public/cart_items#index'
-#resources :public_customers, only: [:show, :edit, :update, :check]
+get '/orders/new' => 'public/orders#new'
+get '/orders' => 'public/orders#index'
+get '/orders/:id' => 'public/orders#show'
+
 devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
