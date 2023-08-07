@@ -13,6 +13,8 @@ get '/orders/new' => 'public/orders#new'
 get '/orders' => 'public/orders#index'
 get '/orders/:id' => 'public/orders#show'
 
+#resources :customers, only: [:show, :edit, :check]
+
 devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
