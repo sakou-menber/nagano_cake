@@ -16,8 +16,8 @@
 
   <div class="actions">
     <%= link_to "退会しない", customers_mypage_path, :class => "btn btn-primary ms-3" %>
-    <%= link_to "退会する", customers_withdraw_path, method: :path, :class => "btn btn-danger ms-3", data: {confirm: "本当に削除しますか？"} %>
-   
+    <%= link_to "退会する", customers_withdraw_path, method: :patch, :class => "btn btn-danger ms-3", data: {confirm: "本当に削除しますか？"} %>
+
 
 
 
