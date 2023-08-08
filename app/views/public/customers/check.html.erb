@@ -1,19 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
-      <b>本当に退会しますか?</b>
+      <h3>本当に退会しますか?</h3>
     </div>
    </div>
    <div class ="row">
-      <div class="col-md-4 col-md-offset-4">
-        退会すると、会員登録情報や</br>
-        これまでの購入履歴が閲覧できなくなります。</br>
+    <div class="col-md-4 col-md-offset-4">
+      <P>
+        退会すると、会員登録情報や<br>
+        これまでの購入履歴が閲覧できなくなります。<br>
         退会する場合は、「退会する」をクリックしてください。
-   </div>
-</div>
+      </p>
+    </div>
+  </div>
 
   <div class="actions">
-
+    <%= link_to "退会しない", customers_mypage_path, :class => "btn btn-primary ms-3" %>
+    <%= link_to "退会する", customers_withdraw_path, method: :path, :class => "btn btn-danger ms-3", data: {confirm: "本当に削除しますか？"} %>
+   
 
 
 

@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
 
    def show
-    @customer = current_customer
+     @customer = current_customer
       
    end
 
@@ -12,9 +12,11 @@ class Public::CustomersController < ApplicationController
    end
 
    def check
+  
    end
 
    def withdraw
+     @customer = current_customer
    end
    
    
