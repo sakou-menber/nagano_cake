@@ -7,6 +7,14 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to admin_items_new_path
+    else
+      flash.now[:notice] = '登録に失敗しました'
+      render :new
+    end
+    
   end
 
   def show
@@ -17,6 +25,10 @@ class Admin::ItemsController < ApplicationController
 
    def update
    end
+   
+   private
+   
+   def post_item_params
 
   end
 

@@ -39,6 +39,11 @@
               <th><%= f.text_field :price, size: "30×5", placeholder: "1000"%>円</th>
             </div>
           </tr>
+          <tr>
+            <div class= "form-action" >
+              <th><%=link_to "新規登録",  admin_items_new_path, class:"btn btn-success"%> </th>
+            </div>
+          </tr>
         </table>
        <% end %>
     </div>
