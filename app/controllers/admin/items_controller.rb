@@ -7,12 +7,15 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to admin_items_new_path
-    else
-      flash.now[:notice] = '商品の登録に失敗しました'
-    end
+     @item = Item.new(item_params)
+     @item.item_id = current_item.id
+     @item.save
+     redirect_to admin_items_new_path
+    # if @item.save
+    #   redirect_to admin_items_new_path(@item)
+    # else
+    #   flash.now[:notice] = '商品の登録に失敗しました'
+    # end
 
   end
 
