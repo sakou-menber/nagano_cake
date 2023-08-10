@@ -11,10 +11,9 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_items_new_path
     else
-      flash.now[:notice] = '登録に失敗しました'
-      render :new
+      flash.now[:notice] = '商品の登録に失敗しました'
     end
-    
+
   end
 
   def show
@@ -25,10 +24,12 @@ class Admin::ItemsController < ApplicationController
 
    def update
    end
-   
-   private
-   
-   def post_item_params
 
-  end
+   private
+
+   def item_params
+     params.require(:item).permit(:image, :name, :description, :price)
+   end
+
+ end
 
