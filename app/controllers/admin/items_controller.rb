@@ -8,16 +8,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-     @items = Item.new(item_params)
-     @items.item_id = current_item.id
-     @items.save
-     redirect_to admin_items_new_path
-    # if @item.save
-    #   redirect_to admin_items_new_path(@item)
-    # else
-    #   flash.now[:notice] = '商品の登録に失敗しました'
-    # end
-
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to admin_items_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -26,14 +22,16 @@ class Admin::ItemsController < ApplicationController
   def edit
   end
 
-   def update
-   end
+  def update
+  end
 
-   private
+private
 
-   def item_params
-     params.require(:item).permit(:image, :name, :description, :price)
-   end
-
+  def item_params
+     params.require(:item).permit(:image, :name, :description, :price, :genre)
+  end
+   
  end
+ 
+
 

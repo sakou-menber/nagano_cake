@@ -33,6 +33,9 @@ get 'admin/customers' => 'admin/customers#index'
 get '/admin/customers/:id' => 'admin/customers#show'
 get '/admin/customers/:id/edit' => 'admin/customers#edit'
 get 'admin/orders/:id' => 'admin/orders#show'
+
+post '/admin/items' => 'admin/items#create'
+
 devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
