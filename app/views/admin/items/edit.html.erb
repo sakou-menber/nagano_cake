@@ -1,1 +1,51 @@
-商品編集画面
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+        <h3>商品編集</h3>
+    </div>
+  </div>
+
+  <div class= "row">
+    <div class="row my-3">
+      <%= form_with model: @item do |f| %>
+       <table>
+         <tr>
+           <div class = "form-group">
+             <th><%= f.label :商品画像 %></th>
+             <th><%= f.file_field :image, accept: "image/*" %></th>
+           </div>
+          </tr>
+          <tr>
+           <div class = "form-group">
+             <th><%= f.label :商品名 %></th>
+             <th><%= f.text_field :name, size: "30×5", placeholder: "商品名"%></th>
+           </div>
+          </tr>
+          <tr>
+            <div class = "form-group">
+             <th><%= f.label :商品説明 %></th>
+             <th><%= f.text_area :description, size: "30×5", placeholder: "ここに説明を記述します"%></th>
+            </div>
+          </tr>
+          <tr>
+            <div class = "form-group">
+              <th><%= f.label :ジャンル %></th>
+              <th><%= f.select :genre, {'ケーキ': 1, '焼き菓子': 2, 'プリン': 3, 'キャンディ': 4,}, { include_blank: '-- 選択してください --'}, { class: 'form-control' , required: true } %></th>
+            </div>
+          </tr>
+          <tr>
+            <div class = "form-group">
+              <th><%= f.label :税抜価格 %></th>
+              <th><%= f.text_field :price, size: "30×5", placeholder: "1000"%>円</th>
+            </div>
+          </tr>
+          <tr>
+            <div class= "form-action" >
+              <th><%=link_to "新規登録",  admin_items_new_path, class:"btn btn-success"%> </th>
+            </div>
+          </tr>
+        </table>
+       <% end %>
+    </div>
+    </div>
+</div>
