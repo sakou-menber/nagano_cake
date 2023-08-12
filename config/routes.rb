@@ -15,7 +15,7 @@ scope module: :public do
   get '/orders/:id' => 'public/orders#show'
 
   patch  '/customers/withdraw' => 'public/customers#withdraw'
-  
+
 end
   #resources :customers, only: [:show, :edit, :check]
 
@@ -27,8 +27,8 @@ end
 
 namespace :admin do
   # 管理者用
-  get 'admin' => 'homes#top'
-  #get 'admin/items' => 'admin/items#index'
+  get '/' => 'homes#top'
+  #get '/items' => 'admin/items#index'
   # post '/admin/items' => 'admin/items#create'
   # get 'admin/items/new' => 'admin/items#new'
   # get 'admin/items/:id' => 'admin/items#show'
