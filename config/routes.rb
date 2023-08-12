@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
 scope module: :public do
   # 顧客用
-  root 'public/homes#top'
-  get 'about' => 'public/homes#about'
+  root 'homes#top'
+  get 'about' => 'homes#about'
   get 'items' => 'public/items#index'
   get '/items/:id' => 'public/items#show'
   get '/customers/mypage' => 'public/customers#show'
@@ -15,7 +15,7 @@ scope module: :public do
   get '/orders/:id' => 'public/orders#show'
 
   patch  '/customers/withdraw' => 'public/customers#withdraw'
-
+  
 end
   #resources :customers, only: [:show, :edit, :check]
 
@@ -27,7 +27,7 @@ end
 
 namespace :admin do
   # 管理者用
-  get 'admin' => 'admin/homes#top'
+  get 'admin' => 'homes#top'
   #get 'admin/items' => 'admin/items#index'
   # post '/admin/items' => 'admin/items#create'
   # get 'admin/items/new' => 'admin/items#new'

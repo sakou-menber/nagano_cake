@@ -22,14 +22,14 @@
 
        <%= link_to '会員一覧',admin_customers_path  %>
 
-       <%= link_to '注文履歴一覧', admin_path %>
+       <%= link_to '注文履歴一覧', admin_admin_path %>
 
        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
 
     <% elsif customer_signed_in? %>
        <%= link_to 'LOGO', root_path %>
 
-       <%= link_to 'マイページ',customers_mypage_path %>
+       <%= link_to 'マイページ',customer_path %>
 
        <%= link_to '商品一覧',items_path %>
 

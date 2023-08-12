@@ -20,7 +20,7 @@
     <% @items.each do |item| %>
      <tr>
        <td class="align-middle"><%= item.id %></td>
-       <td class="align-middle"><%= link_to item.name, admin_item_path %></td>
+       <td class="align-middle"><%= link_to item.name, admin_items_path %></td>
        <td class="align-middle"><%= item.price %>
      </tr>
     <% end %>
