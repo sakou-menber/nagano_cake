@@ -29,7 +29,7 @@ namespace :admin do
   # 管理者用
   get '/' => 'homes#top'
   #get '/items' => 'admin/items#index'
-  # post '/admin/items' => 'admin/items#create'
+  #post '/admin/items' => 'admin/items#create'
   # get 'admin/items/new' => 'admin/items#new'
   # get 'admin/items/:id' => 'admin/items#show'
   # get '/admin/items/:id/edit' => 'admin/items#edit'
