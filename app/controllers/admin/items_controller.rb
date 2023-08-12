@@ -1,10 +1,11 @@
 class Admin::ItemsController < ApplicationController
   def index
-      @items = Item.page(params[:page])
+    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
@@ -25,13 +26,13 @@ class Admin::ItemsController < ApplicationController
   def update
   end
 
-private
+  private
 
   def item_params
-     params.require(:item).permit(:image, :name, :description, :price, :genre)
+     params.require(:item).permit(:image, :name, :introduction, :price)
   end
-   
- end
- 
+
+end
+
 
 

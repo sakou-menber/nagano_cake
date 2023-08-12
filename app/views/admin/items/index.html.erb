@@ -7,7 +7,7 @@
 </div>
 
 <div class= "row">
-  
+
   <div class="col-sm-10 px-sm-0 mx-auto mb-5">
  　<table class="col-sm-10 px-sm-0 mx-auto mb-5">
     <thead class= "table-secondary">
@@ -15,10 +15,20 @@
         <th>商品ID</th>
         <th>商品名</th>
         <th>税抜価格</th>
-        <th>ジャンル</th>
-        <th>ステータス</th>
       </tr>
     </thead>
+    <% @items.each do |item| %>
+     <tr>
+       <td class="align-middle"><%= item.id %></td>
+       <td class="align-middle"><%= link_to item.name, admin_item_path %></td>
+       <td class="align-middle"><%= item.price %>
+     </tr>
+    <% end %>
+   </table>
   </div>
-  
-  <%= paginate @items %>
+ <%= paginate @items %>
+</div>
+
+
+
+
