@@ -4,8 +4,8 @@ scope module: :public do
   # 顧客用
   root 'homes#top'
   get 'about' => 'homes#about'
-  get 'items' => 'items#index'
-  get '/items/:id' => 'items#show'
+  # get '/items' => 'items#index'
+  # get '/items/:id' => 'items#show', as: :item
   get '/customers/mypage' => 'customers#show'
   get '/customers/information/edit' => 'customers#edit'
   get '/customers/check' => 'customers#check'
@@ -15,6 +15,7 @@ scope module: :public do
   get '/orders/:id' => 'orders#show'
 
   patch  '/customers/withdraw' => 'customers#withdraw'
+  resources :items, only: [:index, :show]
 
 end
   #resources :customers, only: [:show, :edit, :check]

@@ -1,4 +1,17 @@
-<h4>商品一覧(全<%= @items_all %>件)</h4>
+<h4>商品一覧(全<%= @items.count %>件)</h4>
 
-<% @item.each do |item| %>
- 
+<% @items.each do |item| %>
+<div>
+  <%= link_to item_path(item.id) do %>
+  <%= image_tag item.get_image %>
+  <% end %>
+</div>
+
+<p><%= item.name %></p>
+<p>¥<%= item.price %></p>
+<% end %>
+
+<%= paginate @items %>
+
+
+
