@@ -1,1 +1,8 @@
 商品詳細
+
+<div>
+  <%= image_tag @item.get_image %>
+</div>
+<p><%= @item.name %></p>
+<p><%= @item.introduction %></p>
+<p><%= @item.add_tax_sales_price%>(税込)</p>

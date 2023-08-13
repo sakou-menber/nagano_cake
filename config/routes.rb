@@ -9,13 +9,14 @@ scope module: :public do
   get '/customers/mypage' => 'customers#show'
   get '/customers/information/edit' => 'customers#edit'
   get '/customers/check' => 'customers#check'
-  get '/cart_items' => 'cart_items#index'
+  #get '/cart_items' => 'cart_items#index'
   get '/orders/new' => 'orders#new'
   get '/orders' => 'orders#index'
-  get '/orders/:id' => 'orders#show'
+  get '/orders/:id' => 'orders#show', as: :order
 
   patch  '/customers/withdraw' => 'customers#withdraw'
   resources :items, only: [:index, :show]
+  resources :cart_items, only: [:index, :supdate, :destroy, :destroy_all, :create]
 
 end
   #resources :customers, only: [:show, :edit, :check]
