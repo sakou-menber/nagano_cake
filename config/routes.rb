@@ -4,17 +4,17 @@ scope module: :public do
   # 顧客用
   root 'homes#top'
   get 'about' => 'homes#about'
-  get 'items' => 'public/items#index'
-  get '/items/:id' => 'public/items#show'
-  get '/customers/mypage' => 'public/customers#show'
-  get '/customers/information/edit' => 'public/customers#edit'
-  get '/customers/check' => 'public/customers#check'
-  get '/cart_items' => 'public/cart_items#index'
-  get '/orders/new' => 'public/orders#new'
-  get '/orders' => 'public/orders#index'
-  get '/orders/:id' => 'public/orders#show'
+  get 'items' => 'items#index'
+  get '/items/:id' => 'items#show'
+  get '/customers/mypage' => 'customers#show'
+  get '/customers/information/edit' => 'customers#edit'
+  get '/customers/check' => 'customers#check'
+  get '/cart_items' => 'cart_items#index'
+  get '/orders/new' => 'orders#new'
+  get '/orders' => 'orders#index'
+  get '/orders/:id' => 'orders#show'
 
-  patch  '/customers/withdraw' => 'public/customers#withdraw'
+  patch  '/customers/withdraw' => 'customers#withdraw'
 
 end
   #resources :customers, only: [:show, :edit, :check]
