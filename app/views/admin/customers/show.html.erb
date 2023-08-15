@@ -1,0 +1,37 @@
+<h4><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
+
+
+
+    <tr>
+      <th> 会員ID</th>
+      <td><%= @customer.id %></td>
+    </tr><br>
+    <tr>
+      <th>氏名</th>
+      <td><%= @customer.last_name + @customer.first_name %></td>
+    </tr><br>
+    <th>フリガナ</th>
+      <td><%= @customer.last_name_kana + @customer.first_name_kana  %></td>
+    </tr><br>
+    <th>郵便番号</th>
+      <td><%= @customer.postal_code %></td>
+    </tr><br>
+    <th>住所</th>
+      <td><%= @customer.address %></td>
+    </tr><br>
+    <th>電話番号</th>
+      <td><%= @customer.telephone_number %></td>
+    </tr><br>
+    <th>メールアドレス</th>
+      <td><%= @customer.email %></td>
+    </tr><br>
+     <th>会員ステータス</th>
+      <td><% if @customer.is_deleted == false %>
+           <td>有効</td>
+         <% else %>
+           <td>退会</td>
+         <% end %>
+      </td>
+
+  <%= link_to "編集する", edit_admin_customer_path, :class=> "btn btn-success" %>
+
