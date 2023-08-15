@@ -22,11 +22,18 @@
     <%  @customers.each do |customer| %>
      <tr>
        <td class="align-middle"><%= customer.id %></td>
-       <td class="align-middle"><%= link_to customer.last_name + customer.first_name, admin_customers_path(customer.id) %></td>
+       <td class="align-middle"><%= link_to customer.last_name + customer.first_name, admin_customer_path(@customers) %></td>
        <td class="align-middle"><%= customer.email %></td>
+       <td class="align-middle">
+         <% if customer = " withdrawal_status" == false %>
+           <p class= "text-success font-weight-bold">有効</p>
+         <% else %>
+           <p class="text-secondary">退会</p>
+         <% end %>
+      </td>
      </tr>
     <% end %>
    </table>
   </div>
- <%= paginate @items %>
+
 </div>
