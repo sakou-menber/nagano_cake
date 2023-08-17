@@ -13,6 +13,8 @@ scope module: :public do
   get '/orders/new' => 'orders#new'
   get '/orders' => 'orders#index'
   get '/orders/:id' => 'orders#show', as: :order
+  
+  patch '/customers/information' => 'customers#update'
 
   patch  '/customers/withdraw' => 'customers#withdraw'
   resources :items, only: [:index, :show]
