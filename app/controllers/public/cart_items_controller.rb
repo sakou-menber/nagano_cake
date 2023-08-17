@@ -2,16 +2,23 @@ class Public::CartItemsController < ApplicationController
   def index
   end
   
-   def update
+  def update
   end
   
-   def destroy
+  def destroy
   end
   
-   def destroy_all
+  def destroy_all
   end
   
-   def create
+  def create
   end
+  
+  
+  private
+
+  　def cart_item_params
+  　　params.require(:cart_item).permit(:item_id, :amount)
+　　end
   
 end
