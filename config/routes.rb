@@ -13,12 +13,13 @@ scope module: :public do
   get '/orders/new' => 'orders#new'
   get '/orders' => 'orders#index'
   get '/orders/:id' => 'orders#show', as: :order
+  
 
   patch '/customers/information' => 'customers#update'
 
   patch  '/customers/withdraw' => 'customers#withdraw'
   resources :items, only: [:index, :show]
-  resources :cart_items, only: [:index, :supdate, :destroy, :destroy_all, :create]
+  resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
 
 end
   #resources :customers, only: [:show, :edit, :check]
