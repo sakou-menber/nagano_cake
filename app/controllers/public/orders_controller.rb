@@ -1,7 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
-    @shipping_address = ShippingAddress.all
-    @payment_method = PaymentMethod.all
+    
   end
 
   def confirm
