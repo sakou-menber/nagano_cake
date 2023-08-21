@@ -14,6 +14,8 @@ scope module: :public do
   get '/orders' => 'orders#index'
   get '/orders/:id' => 'orders#show', as: :order
   
+  post '/orders/confirm' => 'orders#confirm'
+  post '/orders' => 'orders#create'
 
   patch '/customers/information' => 'customers#update'
 
@@ -21,7 +23,6 @@ scope module: :public do
   resources :items, only: [:index, :show]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
   resources :cart_items, only: [:index, :update, :destroy,:create]
-
 end
   #resources :customers, only: [:show, :edit, :check]
 

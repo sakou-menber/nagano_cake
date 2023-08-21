@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
+    @order = Order.new
     
   end
 
@@ -10,6 +11,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    
   end
 
   def index
@@ -18,5 +20,5 @@ class Public::OrdersController < ApplicationController
   def show
   end
 
-  end
+end
 
