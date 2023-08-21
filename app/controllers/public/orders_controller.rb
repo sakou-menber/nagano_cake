@@ -5,6 +5,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @order = Order.new(order_params)
   end
 
   def complete
