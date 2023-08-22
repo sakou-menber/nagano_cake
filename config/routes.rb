@@ -4,12 +4,9 @@ scope module: :public do
   # 顧客用
   root 'homes#top'
   get 'about' => 'homes#about'
-  # get '/items' => 'items#index'
-  # get '/items/:id' => 'items#show', as: :item
   get '/customers/mypage' => 'customers#show'
   get '/customers/information/edit' => 'customers#edit'
   get '/customers/check' => 'customers#check'
-  #get '/cart_items' => 'cart_items#index'
   get '/orders/confirm' => 'orders#confirm'
   get '/orders/new' => 'orders#new'
   get '/orders' => 'orders#index'
@@ -25,8 +22,8 @@ scope module: :public do
   resources :items, only: [:index, :show]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
   resources :cart_items, only: [:index, :update, :destroy,:create]
+  
 end
-  #resources :customers, only: [:show, :edit, :check]
 
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
