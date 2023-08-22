@@ -10,9 +10,11 @@ scope module: :public do
   get '/customers/information/edit' => 'customers#edit'
   get '/customers/check' => 'customers#check'
   #get '/cart_items' => 'cart_items#index'
+  get '/orders/confirm' => 'orders#confirm'
   get '/orders/new' => 'orders#new'
   get '/orders' => 'orders#index'
   get '/orders/:id' => 'orders#show', as: :order
+  
   
   post '/orders/confirm' => 'orders#confirm'
   post '/orders' => 'orders#create'
