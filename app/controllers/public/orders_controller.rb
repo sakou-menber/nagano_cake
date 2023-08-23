@@ -15,11 +15,6 @@ class Public::OrdersController < ApplicationController
     @total = 0
 
     @postage = 800
-   
-    @cart_item.each do |cart_item|
-      cart_
-     
-
 
   end
 
@@ -27,20 +22,35 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-
+  order = Order.new(order_params)
+  order.save
+  @cart_items = current_customer.cart_items.all
+    
+  @cart_items.each do |cart_item|
+    @order_details = OrderDetail.new 
+    @order_details.order_id = order.id
+    @order_details.item_id = cart_item.item_id
+    @order_details.amount = cart_item.amount
+    @order_details.purchase_pric = cart_total_payment
+    @order_details.save
+    current_customer.cart_items.destroy_all
+    redirect_to orders_complete_path
+  end
   end
 
-  def index
-  end
+    def index
+    end
+  
+    def show
+    end
 
-  def show
-  end
 
     private
 
     def order_params
       params.require(:order).permit(:payment_method)
     end
-
+    
 end
+
 
