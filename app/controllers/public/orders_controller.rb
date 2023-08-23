@@ -14,6 +14,12 @@ class Public::OrdersController < ApplicationController
     @cart_items = @customer.cart_items
     @total = 0
 
+    @postage = 800
+   
+    @cart_item.each do |cart_item|
+      cart_
+     
+
 
   end
 
