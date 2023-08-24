@@ -4,6 +4,14 @@ class Order < ApplicationRecord
 
 
   has_many :order_details, dependent: :destroy
-  belongs_to :custome
+  belongs_to :customer
   
+  def item_amount
+    amount = 0
+    order_details.each do |order_detail|
+      amount += order_detail.amount
+    end
+    return amount
+  end
+
 end

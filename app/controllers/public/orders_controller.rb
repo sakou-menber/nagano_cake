@@ -23,7 +23,9 @@ class Public::OrdersController < ApplicationController
 
   def create
     order = Order.new(order_params)
+
     order.save
+
     @cart_items = current_customer.cart_items.all
 
     @cart_items.each do |cart_item|
@@ -51,7 +53,7 @@ class Public::OrdersController < ApplicationController
     private
 
     def order_params
-      params.require(:order).permit(:payment_method)
+      params.require(:order).permit(:payment_method, :customer_id, :postage, :payment_method, :total_payment, :shipping_address, :shipping_postal_code, :shipping_name)
     end
 
 end
