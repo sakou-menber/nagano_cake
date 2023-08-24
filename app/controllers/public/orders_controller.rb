@@ -22,25 +22,28 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-  order = Order.new(order_params)
-  order.save
-  @cart_items = current_customer.cart_items.all
-    
-  @cart_items.each do |cart_item|
-    @order_details = OrderDetail.new 
-    @order_details.order_id = order.id
-    @order_details.item_id = cart_item.item_id
-    @order_details.amount = cart_item.amount
-    @order_details.purchase_pric = cart_total_payment
-    @order_details.save
+    order = Order.new(order_params)
+    order.save
+    @cart_items = current_customer.cart_items.all
+
+    @cart_items.each do |cart_item|
+      @order_details = OrderDetail.new
+      @order_details.order_id = order.id
+      @order_details.item_id = cart_item.item_id
+      @order_details.amount = cart_item.amount
+      @order_details.purchase_price= order.total_payment
+      @order_details.save
+
+    end
+
     current_customer.cart_items.destroy_all
-    redirect_to orders_complete_path
-  end
+      redirect_to orders_complete_path
+
   end
 
     def index
     end
-  
+
     def show
     end
 
@@ -50,7 +53,7 @@ class Public::OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:payment_method)
     end
-    
+
 end
 
 
