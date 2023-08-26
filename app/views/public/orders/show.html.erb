@@ -16,4 +16,13 @@
             <th class= "table-active">注文日</th>
             <td><%= @order.created_at.strftime('%Y/%m/%d')%></td>
           </tr>
+          <tr>
+            <th class= "table-active">配送先</th>
+            <td><%= @order.shipping_address%></td>
+          </tr>
+          <tr>
+            <th class= "table-active">支払方法</th>
+            <td><%= @order.payment_method_i18n%></td>
+          </tr>
     </div>
+    </table>
