@@ -12,7 +12,7 @@ scope module: :public do
   get '/orders' => 'orders#index'
   get '/orders/complete' =>'orders#complete'
   get '/orders/:id' => 'orders#show', as: :order
-  
+
 
   post '/orders/confirm' => 'orders#confirm'
   post '/orders' => 'orders#create'
