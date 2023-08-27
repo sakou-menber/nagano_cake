@@ -1,54 +1,60 @@
-注文情報確認
+<div class="container">
+<h4>注文情報確認</h4>
 
-<table>
-   <thead>
-      <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>数量</th>
-      <th>小計</th>
-   </thead>
-   <tbody>
-   <% @cart_items.each do |cart_item| %>
+<div class= "row">
+   <div class="col-6">
+    <table border="1">
+      <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+      <thead class= "table-secondary">
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+      </thead>
+    </div>
+     <% @cart_items.each do |cart_item| %>
       <tr>
-          <%= image_tag cart_item.item.get_image %>
-           <td><%= cart_item.item.name %></td>
-           <td><%= cart_item.item.with_tax_price %></td>
-           <td><%= cart_item.amount %></td>
-
-
-           <td><%= cart_item.subtotal%></td>
-
-           <% @total += cart_item.subtotal %>
-      </tr>
+        <td>
+           <%= image_tag cart_item.item.get_image %>
+           <%= cart_item.item.name %>
+        </td>
+        <td><%= cart_item.item.with_tax_price %></td>
+        <td><%= cart_item.amount %></td>
+        <td><%= cart_item.subtotal%></td>
+        <% @total += cart_item.subtotal %>
+    </tr>
 
    <% end %>
-  </tbody>
- </table>
+ </table> 
+</div>
 
-
+ <div class="col-6">
  <div class="form-group">
-    <thead>
-      <th>送料</th><td><%= @postage %></td>
-      <th>商品合計</th><td><%= @total %></td>
-      <th>請求金額</th><td><%= @total + @postage %></td>
-    </thead>
-　</div>
-
-
-
-
-
-
-
- <div>支払い方法</div>
+   <table border="1">
+     <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+        <thead>
+          <th>送料</th>
+         <th>商品合計</th>
+         <th>請求金額</th>
+        </thead>
+          <td><%= @postage %></td>
+          <td><%= @total %></td>
+          <td><%= @total + @postage %></td>
+      </div>
+    </table>
+</div>
+</div>
+</div>
+<div>
+ <b>支払い方法</b>
  　<%= @order.payment_method_i18n %>
-
-
- <div>お届け先</div>
-   <%= @order.shipping_postal_code %>
-   <%= @order.shipping_address %>
-   <%= @order.shipping_name %>
-
+</div>
+<diV>
+ <b>お届け先</b>
+   〒<%= @order.shipping_postal_code %>
+     <%= @order.shipping_address %>
+  　<div><%= @order.shipping_name %></div>
+</diV>
  <%= form_with model: @order do |f| %>
  <%= f.hidden_field :customer_id, :value => current_customer.id %>
  <%= f.hidden_field :postage, :value => @postage %>
@@ -60,3 +66,4 @@
 
 <%= f.submit "注文を確定する", class:"btn btn-success"%>
  <% end %>
+</div 

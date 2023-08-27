@@ -1,19 +1,26 @@
-<h4>注文情報入力</h4>
+<div class="container">
+  <div class= "row">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h4>注文情報入力</h4>
+    </div>
+  </div>
+      <b>支払い方法</b>
+      <%= form_with model: @order, url: orders_confirm_path do |f|%>
+      <p><%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+         <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+      </p>
+      <p><%= f.radio_button :payment_method, Order.payment_methods.key(2) %>
+       　<%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:transfer] %>
+      </p>
 
-支払い方法
-<%= form_with model: @order, url: orders_confirm_path do |f|%>
-<p><%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-   <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
-</p>
-<p><%= f.radio_button :payment_method, Order.payment_methods.key(2) %>
- 　<%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:transfer] %>
-</p>
 
+      <b>お届け先</b>
+      　<p>〒<%= current_customer.postal_code + current_customer.address %></p>
+      　<%= current_customer.last_name + current_customer.first_name %>
 
-お届け先
-　<p>〒<%= current_customer.postal_code + current_customer.address %></p>
-　<%= current_customer.last_name + current_customer.first_name %>
+      <p class="lead">
+      　<%= f.submit "確認画面へ進む", class: "btn btn-primary"%>
 
-　<%= f.submit "確認画面へ進む", class: "btn btn-success"%>
-
-<% end %>
+      <% end %>
+     </p>
+</div>

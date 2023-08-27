@@ -4,12 +4,12 @@
       <h4>注文履歴詳細</h4>
     </div>
   </div>
-</div>
 <div class="row">
+  <div class="col-6">
     <div class="col-sm-3 px-sm-0 offset-sm-1">
-      <h5>注文情報</h5>
+     <thead class= "table-secondary">
+       <b>注文情報</b>
     </div>
-    <div class= "row">
 
         <table class="table table-bordered">
           <tr>
@@ -24,14 +24,14 @@
             <th class= "table-active">支払方法</th>
             <td><%= @order.payment_method_i18n%></td>
           </tr>
-    </div>
 
     </table>
-     <h5>請求情報</h5>
+     </div>
+    <div class="col-6">
+      <b>請求情報</b>
+         <table border="1">
 
-
-
-        <table class="table table-bordered">
+           <table class="table table-bordered">
           <tr>
            <% total = 0 %>
             <th class= "table-active">商品合計</th>
@@ -45,16 +45,16 @@
             <th class= "table-active">ご請求額</th>
             <td><%= @order.total_payment%></td>
           </tr>
+         </table>
        </table>
-
-  <div class="row">
-  <div class="col-sm-3 px-sm-0 offset-sm-1">
-     <h5>注文内容</h5>
+     </div>
   </div>
 
-
-  <table>
-    <div class= "row">
+  <div class>
+     <b>注文内容</b>
+ </div>
+<div>
+  <table border="1">
     <thead class= "table-secondary">
 
       <tr>
@@ -77,3 +77,5 @@
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
