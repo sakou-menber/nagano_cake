@@ -1,11 +1,13 @@
+<section class="jumbotron text-center">
+<div class="container">
 <div class="container">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-10 col-md-offset-2">
       <h3>本当に退会しますか?</h3>
     </div>
    </div>
    <div class ="row">
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-10 col-md-offset-2">
       <P>
         退会すると、会員登録情報や<br>
         これまでの購入履歴が閲覧できなくなります。<br>
@@ -13,12 +15,14 @@
       </p>
     </div>
   </div>
-
-  <div class="actions">
+</div>
+  <div class ="row">
+    <div class="col-md-10 col-md-offset-2">
     <%= link_to "退会しない", customers_mypage_path, :class => "btn btn-primary ms-3" %>
     <%= link_to "退会する", customers_withdraw_path, method: :patch, :class => "btn btn-danger ms-3", data: {confirm: "本当に削除しますか？"} %>
-
-
+</section>
+</div>
+</div>
 
 
 
