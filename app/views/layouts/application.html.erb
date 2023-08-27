@@ -13,43 +13,44 @@
   <body>
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
       <div class="container">
- 　　<% if admin_signed_in? %>
- 　　    <%= link_to 'LOGO', root_path %>
+     　　<% if admin_signed_in? %>
+     　　    <%= link_to 'LOGO', root_path %>
+    
+           <%= link_to '商品一覧',admin_items_path  %>
+    
+           <%= link_to '会員一覧',admin_customers_path  %>
+    
+           <%= link_to '注文履歴一覧', admin_path %>
+    
+           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+    
+        <% elsif customer_signed_in? %>
+           <%= link_to 'LOGO', root_path %>
+    
+           <%= link_to 'マイページ', customers_mypage_path %>
+    
+           <%= link_to '商品一覧',items_path %>
+    
+           <%= link_to 'カート', cart_items_path %>
+    
+           <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+    
+        <% else  %>
+            <%= link_to 'LOGO', root_path %>
+    
+            <%= link_to 'About', about_path %>
+    
+           <%= link_to '商品一覧',items_path  %>
+    
+           <%= link_to '新規登録',new_customer_registration_path  %>
+    
+           <%= link_to 'ログイン',new_customer_session_path %>
 
-       <%= link_to '商品一覧',admin_items_path  %>
-
-       <%= link_to '会員一覧',admin_customers_path  %>
-
-       <%= link_to '注文履歴一覧', admin_path %>
-
-       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-
-    <% elsif customer_signed_in? %>
-       <%= link_to 'LOGO', root_path %>
-
-       <%= link_to 'マイページ', customers_mypage_path %>
-
-       <%= link_to '商品一覧',items_path %>
-
-       <%= link_to 'カート', cart_items_path %>
-
-       <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-
-    <% else  %>
-        <%= link_to 'LOGO', root_path %>
-
-        <%= link_to 'About', about_path %>
-
-       <%= link_to '商品一覧',items_path  %>
-
-       <%= link_to '新規登録',new_customer_registration_path  %>
-
-       <%= link_to 'ログイン',new_customer_session_path %>
-
-
-   <% end %>
+   
+        <% end %>
+       </div>
   </header>
 
 

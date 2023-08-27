@@ -1,17 +1,26 @@
-<h4>商品一覧(全<%= @items.count %>件)</h4>
 
-<% @items.each do |item| %>
+<div class="container">
+   <div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
+  <h4 class = "bd-title mt-0">商品一覧(全<%= @items.count %>件)</h4>
+
+
+<div class= "row">
+  <% @items.each do |item| %>
+<div class="col-3">
 <div>
   <%= link_to item_path(item.id) do %>
   <%= image_tag item.get_image %>
   <% end %>
-</div>
-
-<p><%= item.name %></p>
+<br>
+<div>
+<br><p><%= item.name %></p>
 <p>¥<%= item.price %></p>
-<% end %>
-
-<%= paginate @items %>
-
+</div>
+</div>
+</div>
+  <% end %>
+</div>
+  <%= paginate @items %>
+</div>
 
 

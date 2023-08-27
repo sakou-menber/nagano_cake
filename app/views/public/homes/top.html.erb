@@ -1,20 +1,26 @@
+<div class="container">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">  
+   <div class=class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h5>ようこそ、ながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが,<br>
+        購入には会員登録が必要になります。
+        </h5>
+     </div>
+   </div>
+  
+    <h2 class="mb-3">新着商品</h2>
+    <div class="card-deck mb-3 text-center"> 
+    <% @items.each do |item| %>
+    <p>
+      <%= link_to item_path(item.id) do %>
+      <%= image_tag item.get_image %>
+      <% end %>
+    </p>
 
-
-<p>ようこそ、ながのCAKEへ！
-このサイトは、ケーキ販売のECサイトになります。
-会員でない方も商品の閲覧はできますが、
-購入には会員登録が必要になります。</p>
-
-<h2>新着商品</h2>
-<% @items.each do |item| %>
-<div>
-  <%= link_to item_path(item.id) do %>
-  <%= image_tag item.get_image %>
-  <% end %>
+    <p class = "card-text"><%= item.name %></p>
+    <p class = "card-text">¥<%= item.price %></p>
+    <% end %>
 </div>
-
-<p><%= item.name %></p>
-<p>¥<%= item.price %></p>
-<% end %>
-
-<div><%= link_to "全ての商品を見る", items_path %></div>
+<p class= "float-right"><%= link_to "全ての商品を見る", items_path %></p>
+</div>
