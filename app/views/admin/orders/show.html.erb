@@ -1,28 +1,37 @@
 <div class="container">
-  <div class= "row">
+  <div class="row my-3">
     <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
       <h4>注文履歴詳細</h4>
     </div>
   </div>
+<div class="row">
+ <div class="col-12">
+  <table class= "table">
+   <tr>
+    <th>購入者</th>
+    <td><%=link_to @order.shipping_name, admin_customer_path(@order.customer.id) %></td>
+  </tr>
+  <tr>
+    <th>注文日</th>
+    <td><%= @order.created_at.strftime('%Y/%m/%d')%></td>
+  </tr>
+  <tr>
+    <th>配送先 〒</th>
+    <td><%= @order.shipping_postal_code%><br>
+        <%= @order.shipping_name%></td>
+  </tr>
+  <tr>
+    <th>支払方法</th>
+    <td><%= @order.payment_method_i18n %></td>
+  </tr>
+ </div>
 </div>
-
-<tr>
-  <p>購入者<%=link_to @order.shipping_name, admin_customer_path  %></p>
-  <p>注文日<%= @order.created_at.strftime('%Y/%m/%d')%></p>
-  <p>配送先  〒<%= @order.shipping_postal_code%><br>
-     <%= @order.shipping_name%>
-  </p>
-
-  <p>支払方法<%= @order.payment_method_i18n %></p>
-</tr>
-
-<div class= "row">
-
-  <div class="col-sm-10 px-sm-0 mx-auto mb-5">
+</table>
+<div class = "row">
+  <div class="col-8">
    <table class="col-sm-10 px-sm-0 mx-auto mb-5">
     <thead class= "table-secondary">
-
-
       <tr>
         <th>商品名</th>
         <th>単価(税込）</th>
@@ -42,12 +51,23 @@
     </tr>
     <% end %>
     </tbody>
+  </table>
+  </div>
 
+  <div class="col-4">
+  <table class= "table">
     <tr>
-      <p>商品合計<%= total %></p>
-      <p>送料<%= @order.postage %></p>
-      <p>請求金額合計 <%= @order.total_payment %><br>
-      </p>
+      <th>商品合計</th>
+      <td><%= total %></td>
     </tr>
-
-
+    <tr>
+      <th>送料</th>
+      <td><%= @order.postage %></td>
+    </tr>
+    <tr>
+      <th>請求金額合計</th>
+      <td><%= @order.total_payment %></td>
+    </tr>
+  </div>
+</div>
+</div>
