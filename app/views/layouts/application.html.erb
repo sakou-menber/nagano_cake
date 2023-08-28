@@ -16,9 +16,9 @@
     <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
       <div class="container">
      　　<% if admin_signed_in? %>
-     　　    <%= link_to 'LOGO', root_path %>
+     　　  <h4>  <%= link_to 'LOGO', root_path %></h4>
     
-           <%= link_to '商品一覧',admin_items_path  %>
+          <p style="text-align: right"> <%= link_to '商品一覧',admin_items_path  %>
     
            <%= link_to '会員一覧',admin_customers_path  %>
     
@@ -50,6 +50,7 @@
 
    
         <% end %>
+        </p>
        </div>
   </header>
 
