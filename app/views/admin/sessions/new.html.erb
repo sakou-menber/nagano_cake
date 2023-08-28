@@ -1,15 +1,23 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+　　　<div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
+      <h4>管理者ログイン</h4>
+    </div>
+  </div>
 
-
-<h2>管理者ログイン</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="row">
+  <div class="col-sm-3 px-sm-0 offset-sm-1">
+　　<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+　</div>
+　<div class = "col-6">　　
   <div class="field">
-    <%= f.label :メールアドレス %><br />
+    <%= f.label :メールアドレス %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %><br />
+    <%= f.label :パスワード %>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -21,8 +29,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
   </div>
 <% end %>
 
 <%= render "admin/shared/links" %>
+</div>

@@ -16,6 +16,7 @@
         <th>会員ID</th>
         <th>氏名</th>
         <th>メールアドレス</th>
+        <th>ステータス</th>
       </tr>
     </thead>
     <%  @customers.each do |customer| %>
@@ -23,9 +24,9 @@
        <td class="align-middle"><%= customer.id %></td>
        <td class="align-middle"><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer) %></td>
        <td class="align-middle"><%= customer.email %></td>
-
+       <td>
          <% if customer.is_deleted == false %>
-           <p >有効</p>
+          <b> <font color="$teal-300">有効</font></b>
          <% else %>
            <p>退会</p>
          <% end %>

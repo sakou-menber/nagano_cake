@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row my-3">
     <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
         <h3>商品新規登録画面</h3>
     </div>
   </div>
 
-  <div class= "row">
-    <div class="row my-3">
+  <div class="row">
+   <div class="col-sm-3 px-sm-0 offset-sm-1">
       <%= form_with model: @item, url: admin_items_path do |f| %>
        <table>
          <tr>
@@ -34,15 +35,16 @@
               <th><%= f.text_field :price, size: "30×5", placeholder: "1000"%>円</th>
             </div>
           </tr>
+        </div>
           <tr>
-            <div class= "form-action" >
+            <div class= "text-center" >
               <th><%= f.submit "新規登録", class:"btn btn-success"%> </th>
             </div>
           </tr>
         </table>
        <% end %>
-    </div>
-    </div>
+     
+  </div>
 </div>
 
 
