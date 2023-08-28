@@ -36,6 +36,7 @@ namespace :admin do
   # 管理者用
   get '/' => 'homes#top'
   get '/admin/orders/:id' => 'orders#show', as: :order
+  
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
   resources :customers, only: [:index, :show, :edit, :update]
 
