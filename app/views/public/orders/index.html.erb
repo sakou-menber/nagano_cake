@@ -25,12 +25,14 @@
     <tr>
       <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S')%></td>
       <td><%= order.shipping_address%></td>
-      <% order.order_details.each do |order_detail| %>
-      <td><%= order_detail.item.name %></td>
+      <td><% order.order_details.each do |order_detail| %>
+      <%= order_detail.item.name %>
       <% end %>
+      </td>
       <td><%= order.total_payment %>円</td>
-      <td><%= link_to "表示する",order_path(order.id), :class=> "btn btn-primary" %></td>
+      <td><%= link_to "表示する",order_path(order.id), :class=> "btn btn-primary" %> </td>
       <% end %>
     </tr>
+  </tbody>
   </table>
 </table>
