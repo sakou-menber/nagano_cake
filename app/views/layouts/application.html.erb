@@ -16,7 +16,7 @@
     <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
       <div class="container">
      　　<% if admin_signed_in? %>
-     　　  <h4>  <%= link_to 'LOGO', root_path %></h4>
+     　　    <%= link_to 'LOGO', root_path %></h4>
     
           <p style="text-align: right"> <%= link_to '商品一覧',admin_items_path  %>
     
@@ -25,22 +25,22 @@
            <%= link_to '注文履歴一覧', admin_path %>
     
            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-    
+          </p>
         <% elsif customer_signed_in? %>
-           <%= link_to 'LOGO', root_path %>
+           <h4><%= link_to 'LOGO', root_path %></h4>
     
-           <%= link_to 'マイページ', customers_mypage_path %>
+          <p style="text-align: right"> <%= link_to 'マイページ', customers_mypage_path %>
     
            <%= link_to '商品一覧',items_path %>
     
            <%= link_to 'カート', cart_items_path %>
     
            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-    
+          </p>
         <% else  %>
-            <%= link_to 'LOGO', root_path %>
+           <h4><%= link_to 'LOGO', root_path %></h4>
     
-            <%= link_to 'About', about_path %>
+          <p style="text-align: right"><%= link_to 'About', about_path %>
     
            <%= link_to '商品一覧',items_path  %>
     
