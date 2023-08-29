@@ -1,0 +1,23 @@
+
+<div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
+<div class="container">
+<div class= "row">
+<div class="col-6">
+  <%= image_tag @item.get_image %>
+</div>
+<div class="col-6">
+<h4><%= @item.name %></h4>
+<h5><%= @item.introduction %></5>
+<p>¥<%= @item.add_tax_sales_price%>(税込)</p>
+
+<div class="item-description mb-5">
+<%= form_with model: @cart_item, url:cart_items_path do |f| %>
+<%= f.hidden_field :item_id, :value => @item.id %>
+<%= f.select :amount, *[1..10] %>
+
+<%= f.submit "カートに入れる", class:"btn btn-primary px-4" %>
+</div>
+<% end %>
+</div>
+</div>
+</div>

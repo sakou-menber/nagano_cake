@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+
+      <div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
+      <h4>会員の情報編集</h4>
+    </div>
+  </div>
+ <%= form_with model: @customer, url: customers_information_path, local: true do |f| %>
+<div class= "row">
+  <div class="col-5">
+  <div class= "field">
+     <%= f.label :氏名%>
+     <%= f.text_field :last_name %>
+  </div>
+  </div>
+  <div class= "field">
+    <%= f.text_field :first_name %>
+  </div>
+</div>
+<div class= "row">
+  <div class="col-5">
+  <div class= "field">
+     <%= f.label :フリガナ%>
+     <%= f.text_field :last_name_kana %>
+  </div>
+  </div>
+
+  <div class= "field">
+     <%= f.text_field :first_name_kana %>
+  </div>
+</div>
+  <div class= "field">
+    <%= f.label :郵便番号%>
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :住所 %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :電話番号 %>
+    <%= f.text_field :telephone_number %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :メールアドレス %>
+    <%= f.text_field :email %>
+  </div>
+
+
+<div class='btn-toolbar' role="toolbar">
+  <div class= "form-action" >
+    <th><%= f.submit "編集内容を保存", class:"btn btn-success"%> </th>
+  </div>
+
+<div class ="ml-3">
+  <div class= "form-action" >
+    <%= link_to "退会する", customers_check_path, class: "btn btn-danger ms-3" %>
+ </div>
+</div>
+
+<% end %>
+</div>

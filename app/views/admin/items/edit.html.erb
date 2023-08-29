@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <div class = "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"></div>
+        <h3>商品編集</h3>
+    </div>
+  </div>
+
+  <div class="row">
+   <div class="col-sm-3 px-sm-0 offset-sm-1">
+　　 <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+       <table>
+         <tr>
+           <div class = "form-group">
+             <th><%= f.label :商品画像 %></th>
+             <th><%= f.file_field :image, accept: "image/*" %></th>
+           </div>
+          </tr>
+          <tr>
+           <div class = "form-group">
+             <th><%= f.label :商品名 %></th>
+             <th><%= f.text_field :name, size: "30×5", placeholder: "商品名"%></th>
+           </div>
+          </tr>
+          <tr>
+            <div class = "form-group">
+             <th><%= f.label :商品説明 %></th>
+             <th><%= f.text_area :introduction, size: "30×5", placeholder: "ここに説明を記述します"%></th>
+            </div>
+          </tr>
+          <tr>
+            <div class = "form-group">
+              <th><%= f.label :税抜価格 %></th>
+              <th><%= f.text_field :price, size: "30×5", placeholder: "1000"%>円</th>
+            </div>
+          </tr>
+          <tr>
+            <div class= "form-action" >
+              <th><%= f.submit "変更を保存", class:"btn btn-success"%> </th>
+            </div>
+          </tr>
+        </table>
+    　<% end %>
+    </div>
+  </div>
+</div>
